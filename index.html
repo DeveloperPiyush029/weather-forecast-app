@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WeatherNow | Forecast App</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-100 text-gray-900 transition-colors duration-300">
+  <div class="max-w-4xl mx-auto p-6">
+    <header class="flex flex-col sm:flex-row justify-between items-center mb-6">
+      <h1 class="text-3xl font-bold mb-4 sm:mb-0">🌦️ WeatherNow</h1>
+      <div>
+        <button id="getLocationBtn" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Use My Location</button>
+        <button id="toggleTheme" class="ml-3 bg-gray-300 px-4 py-2 rounded">Toggle Theme</button>
+      </div>
+    </header>
+
+    <div class="flex flex-col sm:flex-row gap-4 items-center mb-6">
+      <input type="text" id="cityInput" placeholder="Enter city name..." class="p-2 border border-gray-300 rounded w-full sm:w-auto flex-1" />
+      <button id="searchBtn" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Search</button>
+
+      <select id="recentSearches" class="ml-4 p-2 border border-gray-300 rounded hidden">
+        <option disabled selected>Recent Searches</option>
+      </select>
+    </div>
+
+    <section id="weatherDisplay" class="hidden">
+      <div id="currentWeather" class="p-4 bg-white shadow rounded mb-6">
+        <h2 class="text-xl font-semibold mb-2">Current Weather</h2>
+        <div class="flex items-center gap-4">
+          <img id="weatherIcon" src="" alt="" class="w-16 h-16" />
+          <div>
+            <p id="weatherDescription" class="capitalize font-medium"></p>
+            <p><span id="temperature"></span>°C, Humidity: <span id="humidity"></span>%</p>
+            <p>Wind Speed: <span id="windSpeed"></span> km/h</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="forecast" class="grid grid-cols-2 sm:grid-cols-5 gap-4">
+        <!-- Forecast cards injected via JS -->
+      </div>
+    </section>
+
+    <p id="error" class="text-red-500 mt-4 hidden"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
